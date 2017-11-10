@@ -87,3 +87,22 @@ function groupsGetCount() {
 
     return dbFetchColumn($query);
 }
+
+
+
+function groupsGetList() {
+    
+    $query = "SELECT `groups`.* FROM `groups` ORDER BY `groups`.`title`";
+    
+    $groups = dbFetchAll($query);
+    $groupList = [];
+    
+    foreach ($groups as $group) {
+//        $key = $group['id'];
+//        $value = $group['titile'];
+//        $groupList[$kay] = $value;
+    
+        $gropList[$group['id']] = $group['title'];
+        
+    }
+}
