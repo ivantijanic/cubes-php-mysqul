@@ -30,10 +30,16 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label">Title</label>  
 									<div class="col-md-5">
-										<input value="" type="text" name="title" class="form-control">
+										<input value="<?php echo isset($formData["title"]) ? htmlspecialchars($formData["title"]) : "";?>" type="text" name="title" class="form-control">
 									</div>
 									<div class="col-md-4">
-										
+										<?php if (!empty($formErrors["title"])) { ?>
+											<ul style="color: red">
+												<?php foreach ($formErrors["title"] as $errorMessage) { ?>
+													<li class="error"><?php echo $errorMessage; ?></li>
+												<?php } ?>
+											</ul>
+										<?php } ?>
 									</div>
 								</div>
 							</fieldset>

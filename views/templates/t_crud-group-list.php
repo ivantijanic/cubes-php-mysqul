@@ -17,7 +17,7 @@
 					<div class="col-md-12">
 						<h2>
 							CRUD Group - List
-							<a href="#" class="pull-right btn btn-success">
+                                                        <a href="/crud-group-insert.php" class="pull-right btn btn-success">
 								<i class="fa fa-plus-circle"></i>
 								New group
 							</a>
@@ -35,18 +35,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php for ($i = 1; $i <= 10; $i ++) {?>
+								<?php foreach ($groups as $group) {?>
 								<tr>
 									<td>
-										#<?php echo $i;?>
+										#<?php echo htmlspecialchars($group['id']);?>
 									</td>
 									<td>
-										Title <?php echo $i;?>
+										<?php echo htmlspecialchars($group['title']);?>
 									</td>
 									<td class="text-center">
 										<div class="btn-group">
-											<a href="#" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-											<a href="#" class="btn btn-default"><i class="fa fa-trash"></i></a>
+											<a href="/crud-group-edit.php?id=<?php echo htmlspecialchars($group['id']);?>" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+											<a href="/crud-group-delete.php?id=<?php echo htmlspecialchars($group['id']);?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
 										</div>
 									</td>
 								</tr>
