@@ -9,7 +9,7 @@ require_once __DIR__ . '/m_database.php';
 function productsFetchAll() {
     $query = "SELECT "
             . "products.*, "
-            . " categories.titile AS category_title, "
+            . " categories.title AS category_title, "
             . " brands.title AS brand_title "
             . " FROM products "
             . " LEFT JOIN categories ON products. category_id = categories.id"
@@ -27,7 +27,7 @@ function productsFetchOneById($id) {
 
   $query = "SELECT "
             . "products.*, "
-            . " categories.titile AS category_title, "
+            . " categories.title AS category_title, "
             . " brands.title AS brand_title "
             . "FROM products "
             . " LEFT JOIN categories ON products. category_id = categories.id"
@@ -98,4 +98,14 @@ function productsGetCount() {
     $query = "SELECT COUNT(`id`) FROM `products`";
 
     return dbFetchColumn($query);
+}
+
+
+function productsUpdateFhotoFileName($id, $photoFileName){
+    $query ="UPDATE products "
+            . "SET photo_filename = '" . dbEscape($photoFileName) . "' "
+            . "WHERE id = '" . dbEscape($id) . "' ";
+    
+    return dbQuery($query);
+    
 }

@@ -89,15 +89,3 @@ function dbFetchColumn($query) {
 
     return mysqli_fetch_field($result);
 }
-
-function brandsGetList (){
-    $query = "SELECT brands.* FROM brands ORDER BY brands.title";
-   
-    $brands = dbFetchAll($query);
-    
-    $brandList = [];
-    
-    foreach ($brands as $brand){
-        
-    }
-}
